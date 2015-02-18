@@ -1,11 +1,11 @@
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GildedRose.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class TestAssemblyTests
     {
-        [Test]
+        [TestMethod]
         public void TestTheTruth()
         {
             Assert.IsTrue(true);

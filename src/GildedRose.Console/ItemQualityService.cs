@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GildedRose.Console
 {
-    public static class UpdateQualityService
+    public static class ItemQualityService
     {
         public static void UpdateQuality(IList<Item> Items)
         {

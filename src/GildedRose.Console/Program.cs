@@ -28,9 +28,7 @@ namespace GildedRose.Console
 
                           };
 
-            var svc = new UpdateQualityService();
-
-            svc.UpdateQuality(app.Items);
+            UpdateQualityService.UpdateQuality(app.Items);
 
             System.Console.ReadKey();
 

@@ -5,9 +5,9 @@ using System.Text;
 
 namespace GildedRose.Console
 {
-    public class UpdateQualityService
+    public static class UpdateQualityService
     {
-        public void UpdateQuality(IList<Item> Items)
+        public static void UpdateQuality(IList<Item> Items)
         {
             foreach (var item in Items)
             {
@@ -15,7 +15,7 @@ namespace GildedRose.Console
             }
         }
 
-        public void UpdateItemQuality(Item item)
+        public static void UpdateItemQuality(Item item)
         {
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {

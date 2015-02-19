@@ -9,41 +9,49 @@ namespace GildedRose.Tests
         [TestMethod]
         public void LowerSellInByOne()
         {
-            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
+            var item = GetBoringItem();
+            var originalSellIn = item.SellIn;
 
             ItemQualityService.UpdateItemQuality(item);
 
-            Assert.AreEqual(9, item.SellIn);
+            Assert.AreEqual(originalSellIn - 1, item.SellIn);
         }
 
         [TestMethod]
         public void LowerQualityByOne()
         {
-            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20 };
+            var item = GetBoringItem();
+            var originalQuality = item.Quality;
 
             ItemQualityService.UpdateItemQuality(item);
 
-            Assert.AreEqual(19, item.Quality);
+            Assert.AreEqual(originalQuality - 1, item.Quality);
         }
 
         [TestMethod]
         public void LowerQualityByTwoWhenSellInIsZero()
         {
-            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 0, Quality = 20 };
+            var item = GetBoringItem(sellIn: 0);
+            var originalQuality = item.Quality;
 
             ItemQualityService.UpdateItemQuality(item);
 
-            Assert.AreEqual(18, item.Quality);
+            Assert.AreEqual(originalQuality - 2, item.Quality);
         }
 
         [TestMethod]
         public void NotLowerQualityBelowZero()
         {
-            var item = new Item { Name = "+5 Dexterity Vest", SellIn = 10, Quality = 0 };
+            var item = GetBoringItem(quality: 0);
 
             ItemQualityService.UpdateItemQuality(item);
 
             Assert.AreEqual(0, item.Quality);
+        }
+
+        private Item GetBoringItem(int sellIn = 10, int quality = 20)
+        {
+            return new Item { Name = "+5 Dexterity Vest", SellIn = sellIn, Quality = quality };
         }
     }
 }

@@ -17,15 +17,9 @@ namespace GildedRose.Console
 
         public static void Update(Item item)
         {
-            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+            if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Name != "Sulfuras, Hand of Ragnaros")
             {
-                if (item.Quality > 0)
-                {
-                    if (item.Name != "Sulfuras, Hand of Ragnaros")
-                    {
-                        DecreaseQuality(item);
-                    }
-                }
+                DecreaseQuality(item);
             }
             else
             {
@@ -57,19 +51,13 @@ namespace GildedRose.Console
             {
                 if (item.Name != "Aged Brie")
                 {
-                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert" && item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        if (item.Quality > 0)
-                        {
-                            if (item.Name != "Sulfuras, Hand of Ragnaros")
-                            {
-                                DecreaseQuality(item);
-                            }
-                        }
+                        DecreaseQuality(item);
                     }
                     else
                     {
-                        item.Quality = item.Quality - item.Quality;
+                        item.Quality = 0;
                     }
                 }
                 else
@@ -81,15 +69,14 @@ namespace GildedRose.Console
 
         private static void DecreaseQuality(Item item)
         {
-            item.Quality = item.Quality - 1;
+            if (item.Quality > 0)
+                item.Quality = item.Quality - 1;
         }
 
         private static void IncreaseQuality(Item item)
         {
             if (item.Quality < 50)
-            {
                 item.Quality = item.Quality + 1;
-            }
         }
 
         private static void DecreaseSellIn(Item item)

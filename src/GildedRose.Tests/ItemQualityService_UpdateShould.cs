@@ -81,6 +81,16 @@ namespace GildedRose.Tests
             Assert.AreEqual(originalQuality + 2, item.Quality);
         }
 
+        [TestMethod]
+        public void NotIncreaseQualityAboveMax()
+        {
+            var item = GetAgedBrie(quality: Constants.MAX_QUALITY);
+
+            ItemQualityService.UpdateItemQuality(item);
+
+            Assert.AreEqual(Constants.MAX_QUALITY, item.Quality);
+        }
+
 
         private Item GetBoringItem(int sellIn = 10, int quality = 20)
         {

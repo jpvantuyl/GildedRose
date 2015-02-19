@@ -91,6 +91,28 @@ namespace GildedRose.Tests
             Assert.AreEqual(Constants.MAX_QUALITY, item.Quality);
         }
 
+        [TestMethod]
+        public void NotChangeQualityForLegendaryItem()
+        {
+            var item = GetLegendaryItem();
+            var originalQuality = item.Quality;
+
+            ItemQualityService.UpdateItemQuality(item);
+
+            Assert.AreEqual(originalQuality, item.Quality);
+        }
+
+        [TestMethod]
+        public void NotChangeSellInForLegendaryItem()
+        {
+            var item = GetLegendaryItem();
+            var originalSellIn = item.SellIn;
+
+            ItemQualityService.UpdateItemQuality(item);
+
+            Assert.AreEqual(originalSellIn, item.SellIn);
+        }
+
 
         private Item GetBoringItem(int sellIn = 10, int quality = 20)
         {
@@ -100,6 +122,11 @@ namespace GildedRose.Tests
         private Item GetAgedBrie(int sellIn = 10, int quality = 20)
         {
             return new Item { Name = "Aged Brie", SellIn = sellIn, Quality = quality };
+        }
+
+        private Item GetLegendaryItem()
+        {
+            return new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80 };
         }
     }
 }

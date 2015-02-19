@@ -28,7 +28,7 @@ namespace GildedRose.Console
 
                           };
 
-            ItemQualityService.UpdateQuality(app.Items);
+            ItemService.UpdateQuality(app.Items);
 
             System.Console.ReadKey();
         }

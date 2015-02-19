@@ -5,17 +5,17 @@ using System.Text;
 
 namespace GildedRose.Console
 {
-    public static class ItemQualityService
+    public static class ItemService
     {
         public static void UpdateQuality(IList<Item> Items)
         {
             foreach (var item in Items)
             {
-                UpdateItemQuality(item);
+                Update(item);
             }
         }
 
-        public static void UpdateItemQuality(Item item)
+        public static void Update(Item item)
         {
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {

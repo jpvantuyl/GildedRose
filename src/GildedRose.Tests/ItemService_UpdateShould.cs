@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GildedRose.Tests
 {
     [TestClass]
-    public class ItemQualityService_UpdateShould
+    public class ItemService_UpdateShould
     {
         [TestMethod]
         public void LowerSellInByOne()
@@ -12,7 +12,7 @@ namespace GildedRose.Tests
             var item = GetBoringItem();
             var originalSellIn = item.SellIn;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalSellIn - 1, item.SellIn);
         }
@@ -23,7 +23,7 @@ namespace GildedRose.Tests
             var item = GetBoringItem();
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality - 1, item.Quality);
         }
@@ -34,7 +34,7 @@ namespace GildedRose.Tests
             var item = GetBoringItem(sellIn: 0);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality - 2, item.Quality);
         }
@@ -44,7 +44,7 @@ namespace GildedRose.Tests
         {
             var item = GetBoringItem(sellIn: 0);
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(-1, item.SellIn);
         }
@@ -54,7 +54,7 @@ namespace GildedRose.Tests
         {
             var item = GetBoringItem(quality: 0);
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(0, item.Quality);
         }
@@ -65,7 +65,7 @@ namespace GildedRose.Tests
             var item = GetAgedBrie();
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 1, item.Quality);
         }
@@ -76,7 +76,7 @@ namespace GildedRose.Tests
             var item = GetAgedBrie(sellIn: 0);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 2, item.Quality);
         }
@@ -86,7 +86,7 @@ namespace GildedRose.Tests
         {
             var item = GetAgedBrie(quality: Constants.MAX_QUALITY);
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(Constants.MAX_QUALITY, item.Quality);
         }
@@ -97,7 +97,7 @@ namespace GildedRose.Tests
             var item = GetLegendaryItem();
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality, item.Quality);
         }
@@ -108,7 +108,7 @@ namespace GildedRose.Tests
             var item = GetLegendaryItem();
             var originalSellIn = item.SellIn;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalSellIn, item.SellIn);
         }
@@ -119,7 +119,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 11);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 1, item.Quality);
         }
@@ -130,7 +130,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 10);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 2, item.Quality);
         }
@@ -141,7 +141,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 6);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 2, item.Quality);
         }
@@ -152,7 +152,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 5);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 3, item.Quality);
         }
@@ -163,7 +163,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 1);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(originalQuality + 3, item.Quality);
         }
@@ -174,7 +174,7 @@ namespace GildedRose.Tests
             var item = GetBackstagePasses(sellIn: 0);
             var originalQuality = item.Quality;
 
-            ItemQualityService.UpdateItemQuality(item);
+            ItemService.Update(item);
 
             Assert.AreEqual(0, item.Quality);
         }

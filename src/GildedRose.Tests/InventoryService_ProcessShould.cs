@@ -179,6 +179,28 @@ namespace GildedRose.Tests
             Assert.AreEqual(0, inventory.GetQuality());
         }
 
+        [TestMethod]
+        public void LowerQualityByTwoForConjuredItems()
+        {
+            var inventory = GetConjuredManaCake();
+            var originalQuality = inventory.GetQuality();
+
+            InventoryService.Process(inventory);
+
+            Assert.AreEqual(originalQuality - 2, inventory.GetQuality());
+        }
+
+        [TestMethod]
+        public void LowerQualityByFourForConjuredItemsAfterSellByDate()
+        {
+            var inventory = GetConjuredManaCake(sellIn: 0);
+            var originalQuality = inventory.GetQuality();
+
+            InventoryService.Process(inventory);
+
+            Assert.AreEqual(originalQuality - 4, inventory.GetQuality());
+        }
+
 
         private IInventory GetBoringInventory(int sellIn = 10, int quality = 20)
         {
@@ -198,6 +220,11 @@ namespace GildedRose.Tests
         private IInventory GetBackstagePasses(int sellIn = 10, int quality = 20)
         {
             return InventoryFactory.Create(new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = sellIn, Quality = quality });
+        }
+
+        private IInventory GetConjuredManaCake(int sellIn = 10, int quality = 20)
+        {
+            return InventoryFactory.Create(new Item { Name = "Conjured Mana Cake", SellIn = sellIn, Quality = quality });
         }
     }
 }

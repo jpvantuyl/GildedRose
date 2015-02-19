@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BackstagePassInventory.cs" />
     <Compile Include="BaseInventory.cs" />
+    <Compile Include="ConjuredInventory.cs" />
     <Compile Include="InventoryFactory.cs" />
     <Compile Include="LegendaryInventory.cs" />
     <Compile Include="AppreciatingInventory.cs" />

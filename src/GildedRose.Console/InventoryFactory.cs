@@ -15,6 +15,8 @@ namespace GildedRose.Console
                 return new AppreciatingInventory(item);
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 return new BackstagePassInventory(item);
+            if (item.Name == "Conjured Mana Cake")
+                return new ConjuredInventory(item);
             return new BoringInventory(item);
         }
     }

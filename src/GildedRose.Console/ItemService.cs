@@ -7,7 +7,7 @@ namespace GildedRose.Console
 {
     public static class ItemService
     {
-        public static void UpdateQuality(IList<Item> Items)
+        public static void Update(IList<Item> Items)
         {
             foreach (var item in Items)
             {

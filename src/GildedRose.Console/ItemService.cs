@@ -23,7 +23,7 @@ namespace GildedRose.Console
                 {
                     if (item.Name != "Sulfuras, Hand of Ragnaros")
                     {
-                        item.Quality = item.Quality - 1;
+                        DecreaseQuality(item);
                     }
                 }
             }
@@ -31,24 +31,18 @@ namespace GildedRose.Console
             {
                 if (item.Quality < 50)
                 {
-                    item.Quality = item.Quality + 1;
+                    IncreaseQuality(item);
 
                     if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                     {
                         if (item.SellIn < 11)
                         {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
+                            IncreaseQuality(item);
                         }
 
                         if (item.SellIn < 6)
                         {
-                            if (item.Quality < 50)
-                            {
-                                item.Quality = item.Quality + 1;
-                            }
+                            IncreaseQuality(item);
                         }
                     }
                 }
@@ -56,7 +50,7 @@ namespace GildedRose.Console
 
             if (item.Name != "Sulfuras, Hand of Ragnaros")
             {
-                item.SellIn = item.SellIn - 1;
+                DecreaseSellIn(item);
             }
 
             if (item.SellIn < 0)
@@ -69,7 +63,7 @@ namespace GildedRose.Console
                         {
                             if (item.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                item.Quality = item.Quality - 1;
+                                DecreaseQuality(item);
                             }
                         }
                     }
@@ -80,12 +74,27 @@ namespace GildedRose.Console
                 }
                 else
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
+                    IncreaseQuality(item);
                 }
             }
+        }
+
+        private static void DecreaseQuality(Item item)
+        {
+            item.Quality = item.Quality - 1;
+        }
+
+        private static void IncreaseQuality(Item item)
+        {
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+
+        private static void DecreaseSellIn(Item item)
+        {
+            item.SellIn = item.SellIn - 1;
         }
     }
 }

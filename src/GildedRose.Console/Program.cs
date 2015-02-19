@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedRose.Console
 {
@@ -28,7 +29,7 @@ namespace GildedRose.Console
 
                           };
 
-            ItemService.Update(app.Items);
+            InventoryService.Process(app.Items.Select(item => InventoryFactory.Create(item)));
 
             System.Console.ReadKey();
         }

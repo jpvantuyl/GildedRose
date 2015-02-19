@@ -39,11 +39,18 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackstagePassInventory.cs" />
+    <Compile Include="BaseInventory.cs" />
+    <Compile Include="InventoryFactory.cs" />
+    <Compile Include="LegendaryInventory.cs" />
+    <Compile Include="AppreciatingInventory.cs" />
+    <Compile Include="BoringInventory.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="IInventory.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ItemService.cs" />
+    <Compile Include="InventoryService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

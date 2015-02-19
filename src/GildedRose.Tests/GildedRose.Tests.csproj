@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ItemService_UpdateShould.cs" />
+    <Compile Include="InventoryService_ProcessShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GildedRose.Console\GildedRose.Console.csproj">
